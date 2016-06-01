@@ -110,10 +110,12 @@ public class RajawaliSurfaceView extends GLSurfaceView implements IRajawaliSurfa
 
     @Override
     protected void onVisibilityChanged(View changedView, int visibility) {
-        if (visibility == View.GONE || visibility == View.INVISIBLE) {
-            onPause();
-        } else {
-            onResume();
+        if (!isInEditMode()) {
+            if (visibility == View.GONE || visibility == View.INVISIBLE) {
+                onPause();
+            } else {
+                onResume();
+            }
         }
         super.onVisibilityChanged(changedView, visibility);
     }
