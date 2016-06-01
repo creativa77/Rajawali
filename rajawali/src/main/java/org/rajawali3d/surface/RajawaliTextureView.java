@@ -164,10 +164,12 @@ public class RajawaliTextureView extends TextureView implements IRajawaliSurface
 
     @Override
     protected void onVisibilityChanged(View changedView, int visibility) {
-        if (visibility == View.GONE || visibility == View.INVISIBLE) {
-            onPause();
-        } else {
-            onResume();
+        if (!isInEditMode()) {
+            if (visibility == View.GONE || visibility == View.INVISIBLE) {
+                onPause();
+            } else {
+                onResume();
+            }
         }
         super.onVisibilityChanged(changedView, visibility);
     }
